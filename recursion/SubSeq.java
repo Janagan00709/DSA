@@ -11,7 +11,7 @@ public class SubSeq {
         if(up.isEmpty()){
             System.out.println(p);
             return;
-        }
+        } 
         char ch = up.charAt(0);
         subseq(p+ch,up.substring(1));
         subseq(p,up.substring(1));
@@ -52,4 +52,4 @@ public class SubSeq {
         first.addAll(third);
         return first;
     }
-}
+} 
