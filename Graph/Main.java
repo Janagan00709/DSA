@@ -3,7 +3,6 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         
-
     }
     static void matrix(){
         int n=3,m=3;
