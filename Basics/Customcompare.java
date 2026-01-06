@@ -1,0 +1,112 @@
+package Basics;
+
+import java.util.*;
+
+class Customcompare {
+    static class ItemComparator implements Comparator<Pair> {
+        public int compare(Pair firstvalue, Pair secondvalue) {
+            if(firstvalue.val1 != secondvalue.val1) {
+                return Integer.compare(firstvalue.val1, secondvalue.val1);
+            }else{
+                return Integer.compare(firstvalue.val2, secondvalue.val2);
+            } 
+        }
+    }
+    static class Pair{
+        int val1;
+        int val2;
+        Pair(int val1,int val2){
+            this.val1 = val1;
+            this.val2 = val2;
+        }
+    }
+    public static void main(String[] args) {
+        int[] arr1 = {2,3,5,1,4};
+        int[] arr2 = {2,3,5,1,4};
+        List<Pair> list = new ArrayList<>();
+        for(int i=0;i<arr1.length;i++){
+            list.add(new Pair(arr1[i],arr2[i]));
+        }
+        Collections.sort(list,new ItemComparator());
+        for(Pair p : list){
+            System.out.println(p.val1 + " " + p.val2);
+        }
+        
+        
+    }
+}
+
+// Fractioal Knapsack Problem with Custom Comparator for understanding
+/* 
+import java.util.*;
+
+class Solution {
+
+    // Comparator function to sort items by value/weight ratio
+    static class ItemComparator implements Comparator<Item> {
+        public int compare(Item a, Item b) {
+            double r1 = (double) a.value / (double) a.weight;
+            double r2 = (double) b.value / (double) b.weight;
+            return Double.compare(r2, r1);  // Return comparison based on value/weight ratio
+        }
+    }
+
+    // Method to calculate the maximum value we can get with fractional knapsack
+    public double fractionalKnapsack(int W, Item[] arr, int n) {
+
+        // Sort items based on the value/weight ratio
+        Arrays.sort(arr, new ItemComparator());
+
+        int curWeight = 0;  // Current weight of knapsack
+        double finalvalue = 0.0;  // Final value we can achieve
+
+        // Iterate through the sorted items
+        for (int i = 0; i < n; i++) {
+
+            // If the current item can be fully added to the knapsack
+            if (curWeight + arr[i].weight <= W) {
+                curWeight += arr[i].weight;
+                finalvalue += arr[i].value;  // Add the full value of the item
+            } else {
+                // If the current item can't be fully added, take the fractional part
+                int remain = W - curWeight;
+                finalvalue += (arr[i].value / (double) arr[i].weight) * (double) remain;
+                break;  // Break as we have filled the knapsack
+            }
+        }
+
+        return finalvalue;  // Return the maximum value that can be carried
+    }
+
+    // Class to represent an item with value and weight
+    static class Item {
+        int value;
+        int weight;
+
+        Item(int value, int weight) {
+            this.value = value;
+            this.weight = weight;
+        }
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        
+        // Input data
+        int n = 3, weight = 50;  // Number of items and capacity of knapsack
+        Item[] arr = { new Item(100, 20), new Item(60, 10), new Item(120, 30) };
+
+        // Create an object of the Solution class
+        Solution obj = new Solution();
+
+        // Calculate the maximum value we can get with the fractional knapsack
+        double ans = obj.fractionalKnapsack(weight, arr, n);
+
+        // Output the result
+        System.out.println("The maximum value is: " + String.format("%.2f", ans));
+    }
+}
+*/
+

@@ -24,7 +24,7 @@ public class MaxFrequency {
         for(Map.Entry<Character,Integer> entry: map.entrySet()){
             if(entry.getValue()>maxfreq){
                 maxfreq=entry.getValue();
-                //maxchar=entry.getKey();
+                //maxchar=entry.getKey();/
             }
         }
         return maxfreq;
