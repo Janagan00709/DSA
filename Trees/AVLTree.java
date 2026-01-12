@@ -72,33 +72,34 @@ public class AVLTree {
         display(node.left,"Left child of: "+node.value+" : ");
         display(node.right,"Right child of: "+node.value+" : ");
     }
-    private Node rotate(Node node){
-        if(height(node.left)-height(node.right)>1){
-            //left heavy
-            if(height(node.left.left) - height(node.left.right)>0){
-                //left left case
-                return rightRotate(node);
-            }
-            if(height(node.left.left) - height(node.left.right)<0){
-                //left right case
-                node.left=leftRotate(node.left);
-                return rightRotate(node);
-            }
-        }
-        if(height(node.left)-height(node.right)<-1){
-            //right heavy
-            if(height(node.right.left) - height(node.right.right)<0){
-                //right right case
-                return leftRotate(node);
-            }
-            if(height(node.left.left) - height(node.left.right)>0){
-                //left right case
-                node.right=rightRotate(node.right);
-                return leftRotate(node);
-            }
-        }
-        return node;
-    }
+    // rotate Method
+    // private Node rotate(Node node){
+    //     if(height(node.left)-height(node.right)>1){
+    //         //left heavy
+    //         if(height(node.left.left) - height(node.left.right)>0){
+    //             //left left case
+    //             return rightRotate(node);
+    //         }
+    //         if(height(node.left.left) - height(node.left.right)<0){
+    //             //left right case
+    //             node.left=leftRotate(node.left);
+    //             return rightRotate(node);
+    //         }
+    //     }
+    //     if(height(node.left)-height(node.right)<-1){
+    //         //right heavy
+    //         if(height(node.right.left) - height(node.right.right)<0){
+    //             //right right case
+    //             return leftRotate(node);
+    //         }
+    //         if(height(node.left.left) - height(node.left.right)>0){
+    //             //left right case
+    //             node.right=rightRotate(node.right);
+    //             return leftRotate(node);
+    //         }
+    //     }
+    //     return node;
+    // }
 
     public Node leftRotate(Node p){
         Node c=p.left;
