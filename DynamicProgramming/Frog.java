@@ -15,6 +15,10 @@ class Frog{
        System.out.println(f(n-1,heights,dp));
        System.out.println("Using Tabulation:");
        System.out.println(FrogUsingTabulation(n,heights,dps));
+       int k = 3;
+       int min = Integer.MAX_VALUE;
+       System.out.println("Frog with K jumps:");
+       System.out.println(frogforkjump(n-1,k,heights,min));
     }
     //Using Recursion
     public static int f(int ind, int[] heights){
@@ -71,6 +75,20 @@ class Frog{
             prev=curr;
         } 
         return prev; 
+    }
+    public static int frogforkjump(int ind,int k,int[] arr,int min){
+        if(ind == 0){
+            return 0;
+        }
+        for(int i=1;i<=k;i++){
+            if(ind - i >= 0){
+                //System.out.println("f("+ind+") =>"+" ind: "+ind +", i: "+i);
+                int jumps = frogforkjump(ind-i,k,arr,min)+Math.abs(arr[ind-i]-arr[ind]);
+                min = Math.min(jumps,min);
+                //System.out.println("Jumps: "+ jumps + ", min: " + min);
+            }
+        }
+        return min;
     }
                 
 }

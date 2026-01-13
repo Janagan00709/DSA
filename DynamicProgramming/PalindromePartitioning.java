@@ -44,6 +44,23 @@ class PalindromePartitioning {
         }
         return dp[0]-1;
     }
+    //Using Recursion
+    public static int PPUsingRecursion(int i,String str){
+        if(i==str.length()){
+            return 0;
+        }
+        String temp = "";
+        int cost = Integer.MAX_VALUE;
+        int mincost = Integer.MAX_VALUE;
+        for(int j=i;j<str.length();j++){
+            temp+=str.charAt(j);
+            if(isPalindrome(temp)){
+                cost = 1 + PPUsingRecursion(j+1,str);
+                mincost = Math.min(cost,mincost);
+            }
+        }
+        return mincost;
+    }
     public static boolean isPalindrome(String str){
         int i =0,j=str.length() - 1;
         while(i<j){

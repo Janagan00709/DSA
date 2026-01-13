@@ -10,9 +10,11 @@ public class MergeSort {
         if(arr.length==1){
             return arr;
         }
-        int mid=arr.length/2;
+        int mid = arr.length/2;
         int[] left = mergeSort(Arrays.copyOfRange(arr, 0, mid));
+        // System.out.println("Left: "+ Arrays.toString(left));
         int[] right= mergeSort(Arrays.copyOfRange(arr, mid, arr.length));
+        // System.out.println("Right: "+ Arrays.toString(right));
         return merge(left, right);
     }
     private static int[] merge(int[] first,int[] second){

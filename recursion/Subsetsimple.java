@@ -16,13 +16,13 @@ public class Subsetsimple {
 
         // include
         list.add(nums[index]);
-        System.out.print("include ");
-        System.out.println(list);
+        //System.out.print("include ");
+        //System.out.println(list);
         solve(index + 1, nums, list, result);
         list.remove(list.size() - 1);
 
         // exclude
-        System.out.println("Exclude " + list);
+        //System.out.println("Exclude " + list);
         solve(index + 1, nums, list, result);
         
     }

@@ -16,12 +16,16 @@ public class SubSet {
     static List<List<Integer>> subset(int[] arr){
         List<List<Integer>> outer = new ArrayList<>();
         outer.add(new ArrayList<>());
+        //System.out.println(outer);
         for(int num:arr){
             int n=outer.size();
             for(int i=0;i<n;i++){
                 List<Integer> internal = new ArrayList<>(outer.get(i));
+                //System.out.println("Internal before adding num:"+ internal);
                 internal.add(num);
+                //System.out.println("Internal:"+ internal);
                 outer.add(internal);
+                //System.out.println("outer "+ outer);
             }
 
         }
