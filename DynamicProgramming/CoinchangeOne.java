@@ -76,9 +76,9 @@ class CoinchangeOne {
         int NotTake = 0 + mincoins(ind - 1, arr,T);
         int Take = Integer.MAX_VALUE;
         if(arr[ind]<=T){
-            int res = 1 + mincoins(ind , arr,T-arr[ind]);
+            int res = mincoins(ind , arr,T-arr[ind]);
             if(res!=Integer.MAX_VALUE){
-                Take = 1+ res;
+                Take = 1 + res;
             }
         }
         return Math.min(Take,NotTake);

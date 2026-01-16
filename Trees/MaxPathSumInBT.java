@@ -23,11 +23,11 @@ public class MaxPathSumInBT {
         if(root==null){
             return 0;
         }
-        int leftGain = Math.max(findMaxPath(root.left),0);
-        int rightGain = Math.max(findMaxPath(root.right),0);
-        int currentPathSum = root.val + leftGain + rightGain;
+        int left = Math.max(findMaxPath(root.left),0);
+        int right = Math.max(findMaxPath(root.right),0);
+        int currentPathSum = root.val + left + right;
         maxSum = Math.max(maxSum,currentPathSum);
-        return root.val + Math.max(leftGain,rightGain);
+        return root.val + Math.max(left,right);
     }
     public static void main(String[] args) {
         MaxPathSumInBT MaxPathSum = new MaxPathSumInBT();
